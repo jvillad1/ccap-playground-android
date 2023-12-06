@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CCap Playground Android"
+rootProject.name = "ccap-playground-android"
 include(":app")
  
