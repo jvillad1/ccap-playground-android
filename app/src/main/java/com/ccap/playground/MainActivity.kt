@@ -39,9 +39,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-            text = "Hello $name!",
-            modifier = modifier.padding(24.dp)
-        )
+        text = "Hello $name!",
+        modifier = modifier.padding(24.dp)
+    )
 }
 
 @Preview(showBackground = true)
