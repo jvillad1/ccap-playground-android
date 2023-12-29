@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun MyApp(
     modifier: Modifier = Modifier,
-    names: List<String> = listOf("Junior", "Medellin")
+    names: List<String> = listOf("Lari", "Rodo")
 ) {
     Surface(
         modifier = modifier,
