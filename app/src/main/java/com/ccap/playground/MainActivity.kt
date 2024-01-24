@@ -37,37 +37,36 @@ private fun MyApp(
     modifier: Modifier = Modifier,
     names: List<String> = listOf("Lari", "Rodo")
 ) {
-    val expanded = remember { mutableStateOf(false) }
-    Surface(
-        modifier = modifier,
-        color = MaterialTheme.colorScheme.background
-    ) {
-        Column {
-            for (name in names) {
-                Row(modifier = Modifier.padding(24.dp)) {
-                    Column(modifier = Modifier.weight(1f)) {
-                        Text(text = "Hello ")
-                        Text(text = name)
-                    }
-                    ElevatedButton(
-                        onClick = { expanded.value = !expanded.value },
-                    ) {
-                        Text(if (expanded.value) "Show less" else "Show more")
-                    }
-                }
-            }
+    Column {
+        for (name in names) {
+            Greeting(name = name)
         }
     }
 }
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Surface(color = MaterialTheme.colorScheme.primary) {
-        Column(
-            modifier = modifier.padding(24.dp)
-        ) {
-            Text(text = "Hello, ")
-            Text(text = name)
+    val expanded = remember { mutableStateOf(false) }
+    val extraPadding = if (expanded.value) 48.dp else 0.dp
+
+    Surface(
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
+    ) {
+        Row(modifier = Modifier.padding(24.dp)) {
+            Column(
+                modifier = modifier
+                    .weight(1f)
+                    .padding(bottom = extraPadding)
+            ) {
+                Text(text = "Hello, ")
+                Text(text = name)
+            }
+            ElevatedButton(
+                onClick = { expanded.value = !expanded.value },
+            ) {
+                Text(if (expanded.value) "Show less" else "Show more")
+            }
         }
     }
 }
